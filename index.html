@@ -43,38 +43,6 @@
                 }
                 */
             </script>
-            <script>
-                const btnCerrar = document.getElementsByClassName("popup__close");
-                btnCerrar.addEventListener("click", popUpClose);
-                function popUpClose() {
-
-                  _satellite.track('trackAction', { 'action'{
-                    action: "click",
-                    category: "login popupmigraciontie",
-                    label: "cerrar"
-                  });
-                }
-                //Boton Entendido
-                const btnEntendido = document.getElementsByClassName("popup__btn");
-                btnEntendido.addEventListener("click", popUpBtn);
-                function popUpBtn() {
-                  _satellite.track('trackAction', { 'action'{
-                    action: "click",
-                    category: "login popupmigraciontie",
-                    label: "ingresar"
-                  });
-                }
-                //Link Tengo problemas para migrar
-                const lknMigrar = document.getElementsByClassName("testing");
-                lknMigrar.addEventListener("click", popUpLkn);
-                function popUpLkn() {
-                  _satellite.track('trackAction', { 'action'{
-                    action: "click",
-                    category: "login popupmigraciontie",
-                    label: "Tengo problemas para migrar"
-                  });
-                }
-            </script>
             <style>
                 .overlay {
   position: fixed;
@@ -241,7 +209,7 @@ var popupJS = /** @class */ (function () {
         var overlay = this.elementOverlay;
         var popup = document.createElement('div');
         popup.classList.add('popup');
-        popup.innerHTML = "\n    <div class=\"popup__wrapper\">\n      <div class=\"popup__header\">\n      <div class=\"popup__close\"></div>\n      <picture>\n        <source srcset=\"".concat(options.imgDesktop1x, ", ").concat(options.imgDesktop2x, " 2x\" media=\"(min-width: 600px)\">\n        <img srcset=\"").concat(options.imgMobile1x, ", ").concat(options.imgMobile2x, " 2x\" alt=\"").concat(options.title, "\">\n      </picture>\n    </div>\n    <div class=\"popup__body\">\n      <div class=\"popup__title\">").concat(options.title, "</div>\n      <div class=\"popup__content\">").concat(options.content, "</div>\n      <a class=\"popup__btn\" href=\"").concat(options.link.url, "\" target=\"").concat(options.link.target, "\" title=\"").concat(options.link.text, "\">").concat(options.link.text, "</a>\n").concat("<a class='testing' href='https://ventas.interbank.pe/promociones/feedback-banca-por-internet?rfid=interbank:referral:2022-07_bpi_migracion-tie_conversion:abierto:popup:1' target='_blank'>Tengo problemas para migrar</a>\n  </div>\n    </div>");
+        popup.innerHTML = "\n    <div class=\"popup__wrapper\">\n      <div class=\"popup__header\">\n      <div id=\"popup__cerrar\" class=\"popup__close\"></div>\n      <picture>\n        <source srcset=\"".concat(options.imgDesktop1x, ", ").concat(options.imgDesktop2x, " 2x\" media=\"(min-width: 600px)\">\n        <img srcset=\"").concat(options.imgMobile1x, ", ").concat(options.imgMobile2x, " 2x\" alt=\"").concat(options.title, "\">\n      </picture>\n    </div>\n    <div class=\"popup__body\">\n      <div class=\"popup__title\">").concat(options.title, "</div>\n      <div class=\"popup__content\">").concat(options.content, "</div>\n      <a id=\"popup__entendido\" class=\"popup__btn\" href=\"").concat(options.link.url, "\" target=\"").concat(options.link.target, "\" title=\"").concat(options.link.text, "\">").concat(options.link.text, "</a>\n").concat("<a id=\"popup__link\" class='testing' href='https://ventas.interbank.pe/promociones/feedback-banca-por-internet?rfid=interbank:referral:2022-07_bpi_migracion-tie_conversion:abierto:popup:1' target='_blank'>Tengo problemas para migrar</a>\n  </div>\n    </div>");
         var close = popup.querySelector('.popup__btn');
     var close2 = popup.querySelector('.popup__close');
         this.events(close);
@@ -274,5 +242,34 @@ var popup = new popupJS(options);
 popup.show();
             </script>
         </div>
+        <script>
+            document.getElementById("popup__cerrar").onclick = function() {popUpClose()};
+                function popUpClose() {
+
+                  _satellite.track('trackAction', { action:{
+                    action: "click",
+                    category: "login popupmigraciontie",
+                    label: "cerrar"
+                  }});
+                }
+                //Boton Entendido
+              document.getElementById("popup__cerrar").onclick = function() {popUpBtn()};  
+                function popUpBtn() {
+                  _satellite.track('trackAction', { action:{
+                    action: "click",
+                    category: "login popupmigraciontie",
+                    label: "ingresar"
+                  }});
+                }
+                //Link Tengo problemas para migrar
+              document.getElementById("popup__cerrar").onclick = function() {popUpLkn()};  
+                function popUpLkn() {
+                  _satellite.track('trackAction', { action:{
+                    action: "click",
+                    category: "login popupmigraciontie",
+                    label: "Tengo problemas para migrar"
+                  }});
+                }
+        </script>
     </body>
 </html>
