@@ -246,29 +246,31 @@ popup.show();
             document.getElementById("popup__cerrar").onclick = function() {popUpClose()};
                 function popUpClose() {
 
-                  _satellite.track('trackAction', { action:{
+                  _satellite.track('trackAction', { eventProperties:{ action:{
                     action: "click",
                     category: "login popupmigraciontie",
                     label: "cerrar"
-                  }});
+                  }}});
+
+
                 }
                 //Boton Entendido
               document.getElementById("popup__cerrar").onclick = function() {popUpBtn()};  
                 function popUpBtn() {
-                  _satellite.track('trackAction', { action:{
+                  _satellite.track('trackAction', { eventProperties:{ action:{
                     action: "click",
                     category: "login popupmigraciontie",
                     label: "ingresar"
-                  }});
+                  }}});
                 }
                 //Link Tengo problemas para migrar
               document.getElementById("popup__cerrar").onclick = function() {popUpLkn()};  
                 function popUpLkn() {
-                  _satellite.track('trackAction', { action:{
+                  _satellite.track('trackAction', { eventProperties:{ action:{
                     action: "click",
                     category: "login popupmigraciontie",
                     label: "Tengo problemas para migrar"
-                  }});
+                  }}});
                 }
         </script>
     </body>
